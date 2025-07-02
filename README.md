@@ -1,14 +1,19 @@
-=======
-# React + Vite
+# Investment Plan Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plan your savings, estimate future value, and compare investment strategies in Pakistan with this easy-to-use calculator.
 
-Currently, two official plugins are available:
+## Features
+- Supports yearly increment of investment
+- Compares Money Market, Stocks, and Balanced Portfolio scenarios
+- Beautiful summary, table, and chart
+- Mobile friendly, deployable for free
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demo
+[View the App](https://YOUR-VERCEL-LINK.vercel.app/)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> b0f36e0 (Initial investment calculator app)
+## How to Run Locally
+```bash
+git clone https://github.com/yourusername/investment-calculator.git
+cd investment-calculator
+npm install
+npm run dev
