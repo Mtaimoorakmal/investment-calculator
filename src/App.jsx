@@ -28,17 +28,31 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-100 to-blue-200 flex items-center justify-center p-2 md:p-6">
       <div className="w-full max-w-5xl mx-auto bg-white/90 rounded-3xl shadow-xl p-4 md:p-10 border border-blue-100">
-       <div className="flex flex-col items-center gap-2 mb-4">
-        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-sky-400 shadow text-white text-3xl">
-          <svg width={32} height={32} viewBox="0 0 20 20" fill="currentColor"><path d="M17.5 14.75a.75.75 0 01-.75.75H3.25a.75.75 0 010-1.5h13.5a.75.75 0 01.75.75zm-2.5-4a.75.75 0 01-.75.75H5.75a.75.75 0 010-1.5h8.5a.75.75 0 01.75.75zm-2.5-4a.75.75 0 01-.75.75H8.75a.75.75 0 010-1.5h2.5a.75.75 0 01.75.75z" /></svg>
-        </span>
-        <h1 className="text-2xl md:text-3xl font-extrabold text-blue-700 tracking-tight text-center mt-1">
-          Investment Plan Calculator
-        </h1>
-        <span className="bg-blue-50 px-4 py-1 rounded-full text-blue-700 font-semibold text-xs md:text-sm shadow mt-1">
+
+        <div className="w-full flex justify-center mt-2 mb-4">
+          <div className="flex items-center justify-center gap-3 md:gap-6 bg-white/80 backdrop-blur-md px-4 md:px-8 py-3 rounded-2xl shadow-lg max-w-2xl">
+            <img
+              src="/logo.png"
+              alt="Investment Calculator Logo"
+              className="
+                h-auto
+                w-10 sm:w-12 md:w-14 lg:w-16
+                max-w-[64px]
+                object-contain
+                flex-shrink-0
+              "
+              style={{ background: 'transparent', border: 'none', boxShadow: 'none' }}
+            />
+            <h1 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-blue-700 tracking-tight text-center">
+              Investment Plan Calculator
+            </h1>
+          </div>
+        </div>
+        <span className="bg-blue-50 px-4 py-1 rounded-full text-blue-700 font-semibold text-xs md:text-sm shadow mt-1 mx-auto block w-max">
           Pakistan Market Example
         </span>
-        </div>
+
+
 
         <InvestmentForm
           monthly={monthly}
