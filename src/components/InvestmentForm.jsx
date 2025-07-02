@@ -9,9 +9,6 @@ export default function InvestmentForm({
           backdrop-blur-md border border-blue-200"
         onSubmit={e => e.preventDefault()}
       >
-        {/* <h2 className="text-lg font-bold text-blue-700 mb-2 text-center tracking-tight">
-          Investment Parameters
-        </h2> */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="flex flex-col">
             <label className="block text-blue-900 font-semibold text-xs mb-1">
@@ -23,6 +20,8 @@ export default function InvestmentForm({
               min={0}
               value={monthly}
               onChange={e => setMonthly(e.target.value)}
+              placeholder="10000"
+              onBlur={e => !e.target.value && setMonthly(10000)}
               autoFocus
             />
           </div>
@@ -36,6 +35,8 @@ export default function InvestmentForm({
               min={1}
               value={years}
               onChange={e => setYears(e.target.value)}
+              placeholder="20"
+              onBlur={e => !e.target.value && setYears(20)}
             />
           </div>
           <div className="flex flex-col">
@@ -48,12 +49,17 @@ export default function InvestmentForm({
               min={0}
               value={increase}
               onChange={e => setIncrease(e.target.value)}
+              placeholder="10"
+              onBlur={e => !e.target.value && setIncrease(10)}
             />
+ 
           </div>
         </div>
       </form>
     </div>
   );
 }
+
+
 
 

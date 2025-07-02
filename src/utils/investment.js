@@ -1,6 +1,8 @@
 export const formatPKR = n =>
   Number(n).toLocaleString("en-PK", { maximumFractionDigits: 0 });
 
+
+
 export function calculateInvestmentSchedule({
   startMonthly,
   yearlyIncrease,
@@ -11,34 +13,37 @@ export function calculateInvestmentSchedule({
   let monthly = startMonthly;
   let cumulative = 0;
 
-  // For each year, store the deposit for that year and how many years it will grow
-  let allYearlyDeposits = []; // For future value calculation
+  // Each year, store {amount, depositYear} for every year's deposit
+  let allDeposits = [];
 
   for (let year = 1; year <= years; year++) {
     let yearlyTotal = monthly * 12;
     cumulative += yearlyTotal;
-
-    allYearlyDeposits.push({ amount: yearlyTotal, yearsToGrow: years - year + 1 });
-
-    // For this row: calculate future values for each scenario (as the sum of each year's deposit grown for its yearsToGrow)
+    allDeposits.push({ amount: yearlyTotal, year: year });
+    // For this row, include only deposits up to this year
     let futureValues = {};
     for (const [label, rate] of Object.entries(annualRates)) {
       let sum = 0;
-      for (const d of allYearlyDeposits) {
-        sum += d.amount * Math.pow(1 + rate, d.yearsToGrow);
+      for (let i = 0; i < allDeposits.length; i++) {
+        const d = allDeposits[i];
+        // How many years does this deposit have left to grow after this year
+        const yearsToGrow = years - d.year + 1 - (years - year);
+        if (yearsToGrow > 0) {
+          sum += d.amount * Math.pow(1 + rate, yearsToGrow);
+        }
       }
       futureValues[label] = sum;
     }
 
     schedule.push({
       year,
-      monthly: monthly.toFixed(0),
-      yearlyTotal: yearlyTotal.toFixed(0),
-      cumulative: cumulative.toFixed(0),
+      monthly: monthly.toFixed(2),
+      yearlyTotal: yearlyTotal.toFixed(2),
+      cumulative: cumulative.toFixed(2),
       ...Object.fromEntries(
         Object.entries(futureValues).map(([k, v]) => [
           k,
-          v.toFixed(0),
+          v.toFixed(2),
         ])
       ),
     });

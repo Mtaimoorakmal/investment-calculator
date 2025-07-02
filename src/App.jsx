@@ -8,9 +8,9 @@ import InvestmentTable from "./components/InvestmentTable";
 import { calculateInvestmentSchedule } from "./utils/investment";
 
 export default function App() {
-  const [monthly, setMonthly] = useState(20000);
-  const [years, setYears] = useState(10);
-  const [increase, setIncrease] = useState(0);
+  const [monthly, setMonthly] = useState(10000);
+  const [years, setYears] = useState(20);
+  const [increase, setIncrease] = useState(10);
 
   const annualRates = {
     "Money Market (12%)": 0.12,
@@ -53,25 +53,22 @@ export default function App() {
         </span>
 
 
-
-        <InvestmentForm
-          monthly={monthly}
-          years={years}
-          increase={increase}
-          setMonthly={setMonthly}
-          setYears={setYears}
-          setIncrease={setIncrease}
-        />
-         <InvestmentSummary schedule={schedule} years={years} />
-        <InvestmentChart schedule={schedule} />
-        
-       
-
-
-        <InvestmentTable schedule={schedule} />
+        <div className="max-w-5xl mx-auto p-2 md:p-6">
+                <InvestmentForm
+                  monthly={monthly}
+                  years={years}
+                  increase={increase}
+                  setMonthly={setMonthly}
+                  setYears={setYears}
+                  setIncrease={setIncrease}
+                />
+                <InvestmentSummary schedule={schedule} years={years} />
+                <InvestmentChart schedule={schedule} />
+                <InvestmentTable schedule={schedule} />
+        </div>
         <div className="mt-6 text-center text-xs text-blue-700 opacity-70">
           This calculator is for educational purposes. Returns are hypothetical and not guaranteed.<br />
-          <span className="italic">Made with ❤️ for Pakistan investors • 2024</span>
+
         </div>
       </div>
     </div>
