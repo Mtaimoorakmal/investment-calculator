@@ -9,7 +9,7 @@ Plan your savings, estimate future value, and compare investment strategies in P
 - Mobile friendly, deployable for free
 
 ## Live Demo
-[View the App](https://YOUR-VERCEL-LINK.vercel.app/)
+[View the App](https://investment-calculator-git-main-taimoors-projects-db68cf42.vercel.app/)
 
 ## How to Run Locally
 ```bash
